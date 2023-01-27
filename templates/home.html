@@ -1,49 +1,37 @@
 {% extends "base.html" %}
 {% block main %}
 
+<h1>Digital Dream Board</h1>
 
-<h2>Pending Goals</h2>
+<h2>Create an Account</h2>
+  <form action="/" method="POST">
+    <p>
+      Email <input type="text" name="email">
+    </p>
 
-<div>
-    <ul>
-      {% for goal in goals %}
-        <li>
+    <p>
+      Password <input type="password" name="password">
+    </p>
 
-           <img src ="{{ goal.picture_path }}" width="300" height="300">
-           <p>Description: {{ goal.description }} <p>
-           <p>Deadline: {{ goal.deadline }}<p>
+    <p>
+      <input type="submit">
+    </p>
+  </form>
 
-        </li>
-      {% endfor %}
-    </ul>
-</div>
+  <h2>Log In</h2>
+  <form action="/login" method="POST">
+    <p>
+      Email <input type="text" name="email">
+    </p>
 
-<div class="form-container">
-    <h3>Add Goal</h3>
-    <form action="{{ url_for('add_goal') }}" method="POST">
-        {{ goal_form.csrf_token() }}
-        <div>
-            <div class="form-group mt-2">
-                {{ goal_form.description.label }}
-                {{ goal_form.description(class = "form-control") }}
-            </div>
-            <div class="form-group mt-2">
-                {{ goal_form.picture_path.label }}
-                {{ goal_form.picture_path(class = "form-control") }}
-            </div>
-            <div class="form-group mt-2">
-                {{ goal_form.deadline.label }}
-                {{ goal_form.deadline(class = "form-control") }}
-            </div>
-            <div class="form-group mt-2">
-                {{ goal_form.user_id.label }}
-                {{ goal_form.user_id(class = "form-control") }}
-            </div>
-            <div class="form-group mt-2">
-                {{ goal_form.submit(type="submit", class="btn btn-primary") }}
-            </div>
-        </div>
-        </form>
-    </div>
+    <p>
+      Password <input type="password" name="password">
+    </p>
+
+    <p>
+      <input type="submit">
+    </p>
+  </form>
+
 
 {% endblock %}
