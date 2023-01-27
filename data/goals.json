@@ -1,0 +1,67 @@
+[
+    {
+        "description": "Win the lottery",
+        "picture_path": "https://www.shutterstock.com/image-photo/june-7-2018-detroit-michigan-260nw-1113632312.jpg",
+        "deadline": "2/1/2023",
+        "complete": false,
+        "user_id": 1
+    },
+    {
+        "description": "Get a new car",
+        "picture_path": "https://cdn.luxe.digital/media/20220718163630/best-luxury-car-brands-bugatti-2022-luxe-digital.jpg",
+        "deadline": "3/1/2023",
+        "complete": false,
+        "user_id": 1
+    },
+    {
+        "description": "Climb Mount Everest",
+        "picture_path": "https://cdn.cnn.com/cnnnext/dam/assets/220203135111-mount-everest-2020-restricted-super-tease.jpg",
+        "deadline": "4/1/2023",
+        "complete": true,
+        "user_id": 1
+    },
+    {
+        "description": "Learn to surf",
+        "picture_path": "https://www.surfertoday.com/images/wallpapers/surfingwallpaper2.jpg",
+        "deadline": "2/1/2023",
+        "complete": false,
+        "user_id": 2
+    },
+    {
+        "description": "Go skydiving",
+        "picture_path": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Gabriel_Skydiving_%2823%29.jpg",
+        "deadline": "3/1/2023",
+        "complete": true,
+        "user_id": 2
+    },
+    {
+        "description": "Get a tattoo",
+        "picture_path": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEqoi2Tw24yXmvepOGNfC3ZH0wEBrZc00zkw&usqp=CAU",
+        "deadline": "4/1/2023",
+        "complete": true,
+        "user_id": 2
+    },
+    {
+        "description": "Graduate highschool",
+        "picture_path": "https://assets.teenvogue.com/photos/5919b9b87efd7825958ed461/2:3/w_599,h_899,c_limit/Dog.jpg",
+        "deadline": "2/1/2023",
+        "complete": true,
+        "user_id": 3
+    },
+    {
+        "description": "Get a software Dev job",
+        "picture_path": "https://6448316.fs1.hubspotusercontent-na1.net/hubfs/6448316/what-computer-programming-jobs-offer-remote-work-jpg.jpeg",
+        "deadline": "3/1/2023",
+        "complete": true,
+        "user_id": 3
+    },
+    {
+        "description": "Move to California",
+        "picture_path": "https://images.unsplash.com/photo-1449034446853-66c86144b0ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHx8&w=1000&q=80",
+        "deadline": "4/1/2023",
+        "complete": false,
+        "user_id": 3
+    }
+
+    
+]

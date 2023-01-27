@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block main %}
+
+<h2>Completed Goals</h2>
+
+<div>
+    <ul>
+      {% for goal in goals %}
+        <li>
+
+           <img src ="{{ goal.picture_path }}" width="300" height="300">
+           <p>Description: {{ goal.description }} <p>
+           <p>Deadline: {{ goal.deadline }}<p>
+
+        </li>
+      {% endfor %}
+    </ul>
+</div>
+
+
+
+
+
+{% endblock %}
