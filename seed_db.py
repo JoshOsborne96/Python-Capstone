@@ -5,18 +5,17 @@ import crud
 import model
 import server
 
-os.system("dropdb python-capstone-db")
-os.system("createdb python-capstone-db")
+os.system("dropdb -U postgres python-capstone-db")
+os.system("createdb -U postgres python-capstone-db")
 
 model.connect_to_db(server.app)
 model.db.create_all()
 
 for n in range(3):
     email = f"user{n}@test.com" 
-    username = f"user{n}"
     password = "test"
 
-    user = crud.create_user(email, username, password)
+    user = crud.create_user(email, password)
     model.db.session.add(user)
 
 model.db.session.commit()

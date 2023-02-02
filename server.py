@@ -34,7 +34,11 @@ def complete_goals():
 
     goals= crud.get_complete_goals(2)
 
-    return render_template("complete_goals.html", goals=goals)
+    if "user_email" not in session:
+        flash("Please log in or create an account")
+        return redirect("/login")
+    else:
+        return render_template("complete_goals.html", goals=goals)
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -50,6 +54,24 @@ def login():
         # Log in user by storing the user's email in session
         session["user_email"] = user.email
         flash(f"Welcome back, {user.email}!")
+
+    return redirect("/")
+
+@app.route("/create-user", methods=["GET", "POST"])
+def create_user():
+    """Create a new user"""
+
+    email = request.form.get("email")
+    password = request.form.get("password")
+
+    user = crud.get_user_by_email(email)
+    if user:
+        flash("Cannot create an account with that email. Try again.")
+    else:
+        user = crud.create_user(email, password)
+        db.session.add(user)
+        db.session.commit()
+        flash("Account created! Please log in.")
 
     return redirect("/")
 
@@ -74,6 +96,27 @@ def add_goal():
             return redirect(url_for("home"))
     else:
         return render_template("add_goal.html", goal_form= goal_form)
+
+@app.route("/update-goal/<goal_id>")
+def update_goal(goal_id):
+    form = GoalForm()
+    goal = Goal.query.get(goal_id)
+    if request.method == "POST":
+        if form.validate_on_submit():
+            goal.description = form.description.data
+            goal.picture_path = form.picture_path.data
+            goal.deadline = form.deadline.data
+            # goal.complete = form.complete.data
+
+            db.session.add(goal)
+            db.session.commit()
+            return redirect(url_for("pending-goals"))
+        else:
+            return redirect(url_for("home"))
+
+    else:
+        return render_template("update_goal.html", goal=goal, form=form)
+
 if __name__ == "__main__":
     connect_to_db(app)
     app.run(host="0.0.0.0", port=5000, debug=True)

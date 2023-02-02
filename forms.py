@@ -12,3 +12,4 @@ class GoalForm(FlaskForm):
 
     def update_goal(self, goals):
         self.goal
+    
