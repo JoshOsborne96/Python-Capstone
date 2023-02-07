@@ -1,18 +1,22 @@
 {% extends "base.html" %}
 {% block main %}
 
-<h1>Digital Dream Board</h1>
+<div class="logo-large-container">
+
+  <img id="logo-large" src="../static/Untitled_Artwork1.PNG">
+
+</div>
 
 <div class = "create-account-card">
-  <h2>Create an Account</h2>
+  <h2>Create Account</h2>
     <form action="/create-user" method="POST" class = "create-account-form">
 
       <p>
-        Email <input type="text" name="email">
+        <input type="text" name="email" placeholder="Email">
       </p>
 
       <p>
-        Password <input type="password" name="password">
+        <input type="password" name="password" placeholder="Password">
       </p>
 
       <p>
@@ -25,11 +29,11 @@
   <h2>Log In</h2>
   <form action="/login" method="POST" class="login-form">
     <p>
-      Email <input type="text" name="email">
+      <input type="text" name="email" placeholder="Email">
     </p>
 
     <p>
-      Password <input type="password" name="password">
+      <input type="password" name="password" placeholder="Password">
     </p>
 
     <p>

@@ -18,7 +18,7 @@ def home():
 
     goal_form = GoalForm()
 
-    return render_template("home.html", goal_form=goal_form)
+    return render_template("home.html", goal_form=goal_form, page = "home")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -74,7 +74,7 @@ def pending_goals():
     else:
         goals = crud.get_pending_goals(session["user_id"])
 
-    return render_template("pending_goals.html", goals=goals)
+    return render_template("pending_goals.html", goals=goals, page = "pending-goals")
 
 @app.route("/complete-goals")
 def complete_goals():
@@ -86,7 +86,7 @@ def complete_goals():
         flash("Please log in or create an account")
         return redirect("/login")
     else:
-        return render_template("complete_goals.html", goals=goals)
+        return render_template("complete_goals.html", goals=goals, page = "complete-goals")
 
 @app.route("/add-goal", methods=["GET", "POST"])
 def add_goal():
@@ -108,7 +108,7 @@ def add_goal():
         else: 
             return redirect(url_for("home"))
     else:
-        return render_template("add_goal.html", goal_form= goal_form)
+        return render_template("add_goal.html", goal_form= goal_form, page = "add-goal")
 
 @app.route("/update-goal/<goal_id>", methods=["GET", "POST"])
 def update_goal(goal_id):
@@ -128,7 +128,7 @@ def update_goal(goal_id):
             return redirect(url_for("home"))
 
     else:
-        return render_template("update_goal.html", goal=goal, form=form)
+        return render_template("update_goal.html", goal=goal, form=form, page = "home")
 
 @app.route("/delete-goal/<goal_id>")
 def delete_goal(goal_id):

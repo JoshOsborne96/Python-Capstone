@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block main %}
 
-<h2>Pending Goals</h2>
+<h1>Dream Board</h1>
 
-<div>
-    <ul>
+<div id="goal-list">
+  
       {% for goal in goals %}
-        <li>
+        <div class="card text-center">
 
            <img src ="{{ goal.picture_path }}" width="300" height="300">
            <p>Description: {{ goal.description }} <p>
@@ -14,13 +14,13 @@
 
             <a href="{{ url_for('update_goal', goal_id = goal.id) }}">
               <button type="button" class="btn btn-primary">Update</button>
-          </a>
+            </a>
 
             <a href="{{ url_for('delete_goal', goal_id = goal.id) }}">
             <button type="button" class="btn btn-danger">Delete</button>
           </a>
 
-        </li>
+        </div>
       {% endfor %}
     </ul>
 </div>

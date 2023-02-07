@@ -9,14 +9,52 @@
 <head>
 <body>
     <header>
-        <h2>Navigation</h2>
-            <ul>
-                <li><a href="/pending-goals">View pending goals</a></li>
-                <li><a href="/complete-goals">View completed goals</a></li>
-                <li><a href="/add-goal">Add a goal</a></li>
-                <li><a href="/login">Login/Create Account</a></li>
-                <li><a href="/logout">Logout</a></li>
-            </ul>
+        <a href="{{ url_for('home') }}"><img id="logo-small" src="../static/Untitled_Artwork (1).PNG"></a>
+            
+        <nav class="nav">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                {% if page == "home" %}
+                    <a class="nav-link active" aria-current="page" href="#">
+                {% else %}
+                    <a class="nav-link" href="{{ url_for('home') }}">
+                {% endif %}
+                      Home</a>
+                </li>
+                <li class="nav-item">
+                {% if page == "pending-goals" %}
+                    <a class="nav-link active" aria-current="page" href="#">
+                {% else %}
+                    <a class="nav-link" href="{{ url_for('pending_goals') }}">
+                {% endif %}
+                  Dream Board</a>
+                </li>
+                <li class="nav-item">
+                {% if page == "complete-goals" %}
+                    <a class="nav-link active" aria-current="page" href="#">
+                {% else %}
+                    <a class="nav-link" href="{{ url_for('complete_goals') }}">
+                {% endif %}
+                    Complete Goals</a>
+                </li>
+                <li class="nav-item">
+                {% if page == "add-goal" %}
+                        <a class="nav-link active" aria-current="page" href="#">
+                {% else %}
+                        <a class="nav-link" href="{{ url_for('add_goal') }}">
+                {% endif %}
+                    Add Goal</a>
+                    </li>
+                <li class="nav-item">
+                {% if page == "log-out" %}
+                    <a class="nav-link active" aria-current="page" href="#">
+                {% else %}
+                    <a class="nav-link" href="{{ url_for('logout') }}">
+                {% endif %}
+                    Log Out</a>
+                    </li>
+              </ul>
+            </nav>
     </header>
     
     {% for msg in get_flashed_messages() %}
@@ -30,10 +68,13 @@
         {% endblock %}
     </main>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<footer class="footer">
+    <p>Digital Dream Board by Josh Osborne</p>
+</footer>
+
 
 </body>
 </html>

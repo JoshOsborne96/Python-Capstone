@@ -1,5 +1,9 @@
 * {box-sizing: border-box;}
 
+h1, form, h3{
+    color: #ffffff;
+}
+
 html, body {
     height: 100%;
 }
@@ -17,11 +21,11 @@ body {
     place-items: center;
     margin: 0;
     padding: 0 24px;
-    background-image: url("low-poly-grid-haikei\ \(1\).svg");
+    background-image: url("low-poly-grid-haikei\ \(5\).svg");
     background-repeat: no-repeat;
     background-size: cover;
     animation: 
-        pan 6s infinite alternate linear;
+        pan 10s infinite alternate linear;
 }
 
 @media (width >= 500px) {
@@ -30,12 +34,23 @@ body {
     }
 }
 
-.login-card, .create-account-card {
+.login-card {
     width: 100%;
     padding: 70px, 30px, 44px;
-    border-radius: 24px;
     background: #ffffff;
     text-align: center;
+    position: relative;
+    right: 230px;
+    bottom: 224px;
+}
+
+.create-account-card {
+    width: 100%;
+    padding: 70px, 30px, 44px;
+    background: #ffffff;
+    text-align: center;
+    position: relative;
+    left: 230px;
 }
 
 @media (width >= 500px) {
@@ -58,7 +73,21 @@ body {
     color: rgba(0, 0, 0, 0.38)
 }
 
+.create-account-form {
+    margin: 0 0 30px;
+    font-weight: 500;
+    font-size: 16px;
+    
+}
+
 .login-form {
+    width: 100%;
+    margin: 0;
+    display: grid;
+    gap: 16px;
+}
+
+.create-account-form {
     width: 100%;
     margin: 0;
     display: grid;
@@ -67,10 +96,16 @@ body {
 
 .login-form > a { color: #216ce7}
 
+input:hover {
+    background-color:#c3a769
+
+}
+
 .create-account-card > h2 {
     margin: 0 0 12px;
     font-size: 36px;
     font-weight: 600;
+    
 }
 
 .create-account-card > h3 {
@@ -85,4 +120,43 @@ body {
         margin: 0;
         width: 400px;
     }
+}
+
+#goal-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 70px, 30px, 44px;
+    margin: 0 0 30px;;
+}
+
+#logo-small {
+    position: relative;
+    display: flex;
+    height: 100%;
+    width: 100px;
+    right:600px;
+}
+
+#logo-large {
+    position: relative;
+    display: flex;
+    height: 100px;
+    width: 100%;
+    bottom:75px;
+}
+
+.logo-large-container {
+    padding: 70px, 30px, 44px;
+    margin: 30 30px;
+
+}
+
+.nav{
+    position: relative;
+    display: flex;
+    bottom: 20px;
+}
+
+.footer{
+    color:#ffffff
 }
