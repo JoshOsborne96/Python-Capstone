@@ -33,7 +33,7 @@ class Goal(db.Model):
     description = db.Column(db.Text)
     picture_path = db.Column(db.String)
     deadline = db.Column(db.Date)
-    complete = db.Column(db.Boolean)
+    complete = db.Column(db.Boolean, default=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable = False)
 
     def __init__(self, description, picture_path, deadline, complete, user_id):

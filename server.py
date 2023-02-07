@@ -10,7 +10,7 @@ app = Flask(__name__)
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
 
-user_id = 1
+user_id = 2
 
 @app.route("/")
 def home():
@@ -19,26 +19,6 @@ def home():
     goal_form = GoalForm()
 
     return render_template("home.html", goal_form=goal_form)
-
-@app.route("/pending-goals")
-def pending_goals():
-    """View a user's pending goals"""
-
-    goals = crud.get_pending_goals(1)
-
-    return render_template("pending_goals.html", goals=goals)
-
-@app.route("/complete-goals")
-def complete_goals():
-    """View a user's completed goals"""
-
-    goals= crud.get_complete_goals(2)
-
-    if "user_email" not in session:
-        flash("Please log in or create an account")
-        return redirect("/login")
-    else:
-        return render_template("complete_goals.html", goals=goals)
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -53,9 +33,19 @@ def login():
     else:
         # Log in user by storing the user's email in session
         session["user_email"] = user.email
+        session["user_id"] = user.id
         flash(f"Welcome back, {user.email}!")
 
     return redirect("/")
+
+@app.route("/logout")
+def logout():
+   """Log user out."""
+
+   del session["user_email"]
+   del session["user_id"]
+   flash("Logged out.")
+   return redirect("/login")
 
 @app.route("/create-user", methods=["GET", "POST"])
 def create_user():
@@ -75,6 +65,29 @@ def create_user():
 
     return redirect("/")
 
+@app.route("/pending-goals")
+def pending_goals():
+    """View a user's pending goals"""
+    if 'user_email' not in session:
+        
+        return redirect("/login")
+    else:
+        goals = crud.get_pending_goals(session["user_id"])
+
+    return render_template("pending_goals.html", goals=goals)
+
+@app.route("/complete-goals")
+def complete_goals():
+    """View a user's completed goals"""
+
+    goals= crud.get_complete_goals(session["user_id"])
+
+    if "user_email" not in session:
+        flash("Please log in or create an account")
+        return redirect("/login")
+    else:
+        return render_template("complete_goals.html", goals=goals)
+
 @app.route("/add-goal", methods=["GET", "POST"])
 def add_goal():
     goal_form = GoalForm()
@@ -85,7 +98,7 @@ def add_goal():
             picture_path = goal_form.picture_path.data
             deadline = goal_form.deadline.data
             complete = False
-            user_id = goal_form.user_id.data
+            user_id = session["user_id"]
 
             new_goal = Goal(description, picture_path, deadline, complete, user_id)
             db.session.add(new_goal)
@@ -97,7 +110,7 @@ def add_goal():
     else:
         return render_template("add_goal.html", goal_form= goal_form)
 
-@app.route("/update-goal/<goal_id>")
+@app.route("/update-goal/<goal_id>", methods=["GET", "POST"])
 def update_goal(goal_id):
     form = GoalForm()
     goal = Goal.query.get(goal_id)
@@ -106,16 +119,29 @@ def update_goal(goal_id):
             goal.description = form.description.data
             goal.picture_path = form.picture_path.data
             goal.deadline = form.deadline.data
-            # goal.complete = form.complete.data
+            goal.complete = form.complete.data
 
             db.session.add(goal)
             db.session.commit()
-            return redirect(url_for("pending-goals"))
+            return redirect(url_for("pending_goals"))
         else:
             return redirect(url_for("home"))
 
     else:
         return render_template("update_goal.html", goal=goal, form=form)
+
+@app.route("/delete-goal/<goal_id>")
+def delete_goal(goal_id):
+
+    goal = Goal.query.get(goal_id)
+
+    db.session.delete(goal)
+    db.session.commit()
+    flash("Goal deleted!")
+
+    return render_template("pending_goals.html", goal=goal)
+
+
 
 if __name__ == "__main__":
     connect_to_db(app)

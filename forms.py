@@ -6,9 +6,8 @@ class GoalForm(FlaskForm):
     description = TextAreaField('Goal description')
     picture_path = StringField('Image URL')
     deadline = DateField("Deadline")
-    complete = False
-    user_id = IntegerField("User ID #")
-    submit = SubmitField("submit")
+    complete = BooleanField("Completed?")
+    submit = SubmitField("Submit")
 
     def update_goal(self, goals):
         self.goal

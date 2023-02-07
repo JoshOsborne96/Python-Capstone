@@ -18,6 +18,10 @@
             {{ form.deadline(value = goal.deadline, class = "form-control") }}
         </div>
         <div class="form-group mt-2">
+            {{ form.complete.label }}
+            {{ form.complete(checked = goal.complete) }}
+        </div>
+        <div class="form-group mt-2">
             {{ form.submit(type="submit", class="btn btn-primary") }}
         </div>  
     </form>

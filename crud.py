@@ -41,6 +41,14 @@ def get_user_by_email(email):
 
     return User.query.filter(User.email == email).first()
 
+def get_user_by_id(email):
+    """Get a user id by email"""
+
+    return User.query.filter(User.id == id).first()
+
+
+
+
 
 if __name__ == '__main__':
     from server import app
