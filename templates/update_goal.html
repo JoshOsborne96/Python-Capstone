@@ -2,7 +2,7 @@
 {% block main %}
 
 <div class="form-container">
-    <h3>Update Goal</h3>
+    <h3>UPDATE GOAL</h3>
     <form action="{{ url_for('update_goal', goal_id = goal.id) }}" method="POST">
         {{ form.csrf_token() }}
         <div class="form-group mt-2">

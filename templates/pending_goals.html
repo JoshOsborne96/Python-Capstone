@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block main %}
 
-<h1>Dream Board</h1>
+<h1>DREAM BOARD</h1>
 
 <div id="goal-list">
   
       {% for goal in goals %}
         <div class="card text-center">
 
-           <img src ="{{ goal.picture_path }}" width="300" height="300">
+           <img src ="{{ goal.picture_path }}" width="200" height="200">
            <p>Description: {{ goal.description }} <p>
            <p>Deadline: {{ goal.deadline }}<p>
 

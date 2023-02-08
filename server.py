@@ -69,8 +69,9 @@ def create_user():
 def pending_goals():
     """View a user's pending goals"""
     if 'user_email' not in session:
+        flash("Please log in or create an account")
         
-        return redirect("/login")
+        return redirect("/")
     else:
         goals = crud.get_pending_goals(session["user_id"])
 
@@ -80,35 +81,40 @@ def pending_goals():
 def complete_goals():
     """View a user's completed goals"""
 
-    goals= crud.get_complete_goals(session["user_id"])
 
     if "user_email" not in session:
         flash("Please log in or create an account")
-        return redirect("/login")
+        return redirect("/")
     else:
+        goals= crud.get_complete_goals(session["user_id"])
         return render_template("complete_goals.html", goals=goals, page = "complete-goals")
 
 @app.route("/add-goal", methods=["GET", "POST"])
 def add_goal():
-    goal_form = GoalForm()
+    
 
-    if request.method == "POST":
-        if goal_form.validate_on_submit():
-            description = goal_form.description.data
-            picture_path = goal_form.picture_path.data
-            deadline = goal_form.deadline.data
-            complete = False
-            user_id = session["user_id"]
-
-            new_goal = Goal(description, picture_path, deadline, complete, user_id)
-            db.session.add(new_goal)
-            db.session.commit()
-
-            return redirect(url_for("pending_goals"))
-        else: 
-            return redirect(url_for("home"))
+    if "user_email" not in session:
+            flash("Please log in or create an account")
+            return redirect("/")
     else:
-        return render_template("add_goal.html", goal_form= goal_form, page = "add-goal")
+            goal_form = GoalForm()
+            if request.method == "POST":
+                if goal_form.validate_on_submit():
+                    description = goal_form.description.data
+                    picture_path = goal_form.picture_path.data
+                    deadline = goal_form.deadline.data
+                    complete = False
+                    user_id = session["user_id"]
+
+                    new_goal = Goal(description, picture_path, deadline, complete, user_id)
+                    db.session.add(new_goal)
+                    db.session.commit()
+
+                    return redirect(url_for("pending_goals"))
+                else: 
+                    return redirect(url_for("home"))
+            else:
+                return render_template("add_goal.html", goal_form= goal_form, page = "add-goal")
 
 @app.route("/update-goal/<goal_id>", methods=["GET", "POST"])
 def update_goal(goal_id):

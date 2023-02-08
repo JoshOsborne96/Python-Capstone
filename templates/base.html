@@ -9,52 +9,59 @@
 <head>
 <body>
     <header>
-        <a href="{{ url_for('home') }}"><img id="logo-small" src="../static/Untitled_Artwork (1).PNG"></a>
-            
-        <nav class="nav">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                {% if page == "home" %}
-                    <a class="nav-link active" aria-current="page" href="#">
-                {% else %}
-                    <a class="nav-link" href="{{ url_for('home') }}">
-                {% endif %}
-                      Home</a>
-                </li>
-                <li class="nav-item">
-                {% if page == "pending-goals" %}
-                    <a class="nav-link active" aria-current="page" href="#">
-                {% else %}
-                    <a class="nav-link" href="{{ url_for('pending_goals') }}">
-                {% endif %}
-                  Dream Board</a>
-                </li>
-                <li class="nav-item">
-                {% if page == "complete-goals" %}
-                    <a class="nav-link active" aria-current="page" href="#">
-                {% else %}
-                    <a class="nav-link" href="{{ url_for('complete_goals') }}">
-                {% endif %}
-                    Complete Goals</a>
-                </li>
-                <li class="nav-item">
-                {% if page == "add-goal" %}
+
+        <div class="small-logo-cont">
+            <div id="logo-small">
+                <a href="{{ url_for('home') }}"><img src="../static/Untitled_Artwork (1).PNG" width="100vw"></a>
+            </div>
+        </div>
+
+        <div class="nav-cont">
+            <nav class="nav">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                    {% if page == "home" %}
                         <a class="nav-link active" aria-current="page" href="#">
-                {% else %}
-                        <a class="nav-link" href="{{ url_for('add_goal') }}">
-                {% endif %}
-                    Add Goal</a>
+                    {% else %}
+                        <a class="nav-link" href="{{ url_for('home') }}">
+                    {% endif %}
+                        Home</a>
                     </li>
-                <li class="nav-item">
-                {% if page == "log-out" %}
-                    <a class="nav-link active" aria-current="page" href="#">
-                {% else %}
-                    <a class="nav-link" href="{{ url_for('logout') }}">
-                {% endif %}
-                    Log Out</a>
+                    <li class="nav-item">
+                    {% if page == "pending-goals" %}
+                        <a class="nav-link active" aria-current="page" href="#">
+                    {% else %}
+                        <a class="nav-link" href="{{ url_for('pending_goals') }}">
+                    {% endif %}
+                    Dream Board</a>
                     </li>
-              </ul>
+                    <li class="nav-item">
+                    {% if page == "complete-goals" %}
+                        <a class="nav-link active" aria-current="page" href="#">
+                    {% else %}
+                        <a class="nav-link" href="{{ url_for('complete_goals') }}">
+                    {% endif %}
+                        Complete Goals</a>
+                    </li>
+                    <li class="nav-item">
+                    {% if page == "add-goal" %}
+                            <a class="nav-link active" aria-current="page" href="#">
+                    {% else %}
+                            <a class="nav-link" href="{{ url_for('add_goal') }}">
+                    {% endif %}
+                        Add Goal</a>
+                        </li>
+                    <li class="nav-item">
+                    {% if page == "log-out" %}
+                        <a class="nav-link active" aria-current="page" href="#">
+                    {% else %}
+                        <a class="nav-link" href="{{ url_for('logout') }}">
+                    {% endif %}
+                        Log Out</a>
+                        </li>
+                </ul>
             </nav>
+         </div>
     </header>
     
     {% for msg in get_flashed_messages() %}
