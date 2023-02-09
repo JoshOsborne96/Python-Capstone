@@ -5,9 +5,17 @@ h1, form, h3{
     justify-content: center;
 }
 
+h2 {
+ color: rgb(44,92,81);
+}
+
 .btn.btn-primary {
-    background-color: #c3a769;
-    border-color: #c3a769;
+    background-color: rgb(44,92,81);
+    border-color: rgb(44,92,81);
+}
+
+.btn.btn-primary:hover{
+    background-color: rgb(16,40,34);
 }
 
 .btn.btn-danger {
@@ -33,6 +41,15 @@ div {
     align-items: center;
 }
 
+.card.text-center{
+    margin-right: 10px;
+    width: 200px;
+    height: 300px;
+    justify-items: center;
+
+    
+}
+
 body {
     display: grid;
     place-items: center;
@@ -49,6 +66,10 @@ body {
     body {
         padding: 0;
     }
+}
+
+.form-cont {
+    text-align: left;
 }
 
 .form-cont-1 {
