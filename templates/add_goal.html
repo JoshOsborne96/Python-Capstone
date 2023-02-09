@@ -3,29 +3,30 @@
 
 <h1>ADD GOAL</h1>
 
-<div class="form-cont">
-    <form action="{{ url_for('add_goal') }}" method="POST">
-        {{ goal_form.csrf_token() }}
-        <div>
-            <div class="form-group mt-2">
-                {{ goal_form.description.label }}
-                {{ goal_form.description(class = "form-control") }}
+<div class="page-cont">
+    <div class="form-cont">
+        <form action="{{ url_for('add_goal') }}" method="POST">
+            {{ goal_form.csrf_token() }}
+            <div>
+                <div class="form-group mt-2">
+                    {{ goal_form.description.label }}
+                    {{ goal_form.description(class = "form-control") }}
+                </div>
+                <div class="form-group mt-2">
+                    {{ goal_form.picture_path.label }}
+                    {{ goal_form.picture_path(class = "form-control") }}
+                </div>
+                <div class="form-group mt-2">
+                    {{ goal_form.deadline.label }}
+                    {{ goal_form.deadline(class = "form-control") }}
+                </div>
+                <div class="form-group mt-2">
+                    {{ goal_form.submit(type="submit", class="btn btn-primary") }}
+                </div>
             </div>
-            <div class="form-group mt-2">
-                {{ goal_form.picture_path.label }}
-                {{ goal_form.picture_path(class = "form-control") }}
-            </div>
-            <div class="form-group mt-2">
-                {{ goal_form.deadline.label }}
-                {{ goal_form.deadline(class = "form-control") }}
-            </div>
-            <div class="form-group mt-2">
-                {{ goal_form.submit(type="submit", class="btn btn-primary") }}
-            </div>
-        </div>
-        </form>
+            </form>
     </div>
-
+</div>
 
 
 

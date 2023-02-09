@@ -64,11 +64,6 @@
          </div>
     </header>
     
-    {% for msg in get_flashed_messages() %}
-    <p class="flash-msg">
-      {{ msg }}
-    </p>
-    {% endfor %}
    
     <main>
         {% block main %}

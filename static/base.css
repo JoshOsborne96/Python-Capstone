@@ -1,8 +1,13 @@
 * {box-sizing: border-box;}
 
-h1, form, h3{
+h1{
     color: #ffffff;
     justify-content: center;
+    text-align: center;
+}
+
+form {
+    color: #ffffff;
 }
 
 h2 {
@@ -23,6 +28,10 @@ h2 {
     border-color: rgb(114, 24, 24);
 }
 
+.btn.btn-danger:hover{
+    background-color: rgb(49, 10, 10);
+}
+
 html, body {
     height: 100%;
 }
@@ -35,19 +44,11 @@ a, button {
     100% { background-position: 15% 50%;}
 }
 
-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .card.text-center{
     margin-right: 10px;
     width: 200px;
     height: 300px;
     justify-items: center;
-
-    
 }
 
 body {
@@ -61,11 +62,20 @@ body {
     animation: 
         pan 10s infinite alternate linear;
 }
-
+ 
 @media (width >= 500px) {
     body {
         padding: 0;
     }
+}
+
+.page-cont {
+    display: flex;
+    border: 3px solid #ffffff;
+    height: 70vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
 }
 
 .form-cont {
@@ -73,30 +83,39 @@ body {
 }
 
 .form-cont-1 {
+    position: absolute;
+    top: 200px;
     display: flex;
     flex-direction: row-reverse;
     justify-content:center;
-    align-items: center;
+    align-items:center;
     width: 60vw;
-    height: 30vh;
+    height: 20vh;
     border: 5px dotted #ffffff;
+    
 }
 
 .form-cont-2 {
+    
     display: flex;
     flex-direction: row-reverse;
     justify-content:space-around;
     align-items: center;
     width: 60vw;
-    height: 40vh;
+    height: 30vh;
+    margin-top: 50px;
     border: 3px dotted #ffffff;
+
+  
 }
 
 .nav-cont {
+    top: 0;
     display: flex;
     align-items:center;
     justify-content: center;
-    width: 60vw;
+    /* margin-bottom: 100px; */
+    width: 100vw;
     height: 10vh;
     border: 3px dotted #ffffff;
 }
@@ -111,24 +130,30 @@ body {
     justify-content: center;
     width: 10vw;
     height: 10vh;
-    border: 3px dotted #ffffff; 
+    /* border: 3px dotted #ffffff;  */
+}
+
+.flash-cont {
+    text-align: center;
+    border: 3px dotted #ffffff;
+    width: 60vw;
+    height: 5vh;
 }
 
 .login-card {
     width: 20px;
-    border: 2px solid #c3a769;
+    border: 2px solid rgb(44,92,81);
     padding: 10 10px;
-    margin: 10 10px;
     background: #ffffff;
     text-align: center;
+
 
 }
 
 .create-account-card {
     width: 20vw;
-    border: 2px solid #c3a769;
+    border: 2px solid rgb(44,92,81);
     padding: 10 10px;
-    margin: 10 10px;
     background: #ffffff;
     text-align: center;
 
@@ -168,11 +193,6 @@ body {
     gap: 16px;
 }
 
-input:hover {
-    background-color:#c3a769
-
-}
-
 .create-account-card > h2 {
     margin: 0 0 12px;
     font-size: 36px;
@@ -198,8 +218,8 @@ input:hover {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    padding: 70px, 30px, 44px;
-    margin: 0 0 30px;;
+    border: 3px solid #ffffff;
+
 }
 
 /* #logo-small {
@@ -210,20 +230,14 @@ input:hover {
 } */
 
 #logo-large {
-    margin: 20px;
-    width: 60vw;
-    height: 30vh;
+    width: 450px;
+    height: 100%;
 }
 
 .logo-large-container {
-    padding: 70px, 30px, 44px;
-    margin: 30 30px;
-
+    margin-bottom: 50px;
 }
 
-.nav{
-    margin: 20px;
-}
 
 .nav-link {
     color: #c3a769;
@@ -233,7 +247,9 @@ input:hover {
     color: #ffffff
 }
 .footer{
-    color:#ffffff
+    color:#ffffff;
+    position: absolute;
+    bottom: 0
 }
 
 .flash-msg {

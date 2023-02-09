@@ -3,17 +3,19 @@
 
 <h1>COMPLETED GOALS</h1>
 
-<div id="goal-list">
-      {% for goal in goals %}
-        <div class="card text-center">
+<div class="page-cont">
+  <div id="goal-list">
+        {% for goal in goals %}
+          <div class="card text-center">
 
-           <img src ="{{ goal.picture_path }}" width="200" height="200">
-           <p>Description: {{ goal.description }} <p>
-           <p>Deadline: {{ goal.deadline }}<p>
+            <img src ="{{ goal.picture_path }}" width="200" height="200">
+            <p>Description: {{ goal.description }} <p>
+            <p>Deadline: {{ goal.deadline }}<p>
 
-        </div>
-      {% endfor %}
+          </div>
+        {% endfor %}
 
+  </div>
 </div>
 
 

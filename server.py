@@ -45,7 +45,7 @@ def logout():
    del session["user_email"]
    del session["user_id"]
    flash("Logged out.")
-   return redirect("/login")
+   return redirect("/")
 
 @app.route("/create-user", methods=["GET", "POST"])
 def create_user():

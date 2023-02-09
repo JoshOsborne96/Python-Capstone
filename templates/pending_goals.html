@@ -3,26 +3,27 @@
 
 <h1>DREAM BOARD</h1>
 
-<div id="goal-list">
-  
-      {% for goal in goals %}
-        <div class="card text-center">
+<div class="page-cont">
+  <div id="goal-list">
+    
+        {% for goal in goals %}
+          <div class="card text-center">
 
-           <img src ="{{ goal.picture_path }}" width="200" height="200">
-           <p>Description: {{ goal.description }} <p>
-           <p>Deadline: {{ goal.deadline }}<p>
+            <img src ="{{ goal.picture_path }}" width="200" height="200">
+            <p>Description: {{ goal.description }} <p>
+            <p>Deadline: {{ goal.deadline }}<p>
 
-            <a href="{{ url_for('update_goal', goal_id = goal.id) }}">
-              <button type="button" class="btn btn-primary">Update</button>
+              <a href="{{ url_for('update_goal', goal_id = goal.id) }}">
+                <button type="button" class="btn btn-primary">Update</button>
+              </a>
+
+              <a href="{{ url_for('delete_goal', goal_id = goal.id) }}">
+              <button type="button" class="btn btn-danger">Delete</button>
             </a>
 
-            <a href="{{ url_for('delete_goal', goal_id = goal.id) }}">
-            <button type="button" class="btn btn-danger">Delete</button>
-          </a>
-
-        </div>
-      {% endfor %}
-    </ul>
+          </div>
+        {% endfor %}
+      </ul>
+  </div>
 </div>
-
 {% endblock %}

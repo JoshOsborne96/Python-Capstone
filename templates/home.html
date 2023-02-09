@@ -1,20 +1,46 @@
 {% extends "base.html" %}
 {% block main %}
 
-<div class="form-cont-1">
-  <div class="logo-large-container">
-  
-    <img id="logo-large" src="../static/Untitled_Artwork1.PNG">
-  
+
+  <div class="form-cont-1">
+    <div class="logo-large-container">
+    
+      <img id="logo-large" src="../static/Untitled_Artwork1.PNG">
+    
+    </div>
   </div>
-</div>
 
-<div class="form-cont-2">
+  <div class="flash-cont">
+    {% for msg in get_flashed_messages() %}
+    <p class="flash-msg">
+      {{ msg }}
+    </p>
+    {% endfor %}
+  </div>
 
-  <div class = "create-account-card">
-    <h2>Create Account</h2>
-      <form action="/create-user" method="POST" class = "create-account-form">
+  <div class="form-cont-2">
 
+    <div class = "create-account-card">
+      <h2>Create Account</h2>
+        <form action="/create-user" method="POST" class = "create-account-form">
+
+          <p>
+            <input type="text" name="email" placeholder="Email">
+          </p>
+
+          <p>
+            <input type="password" name="password" placeholder="Password">
+          </p>
+
+          <p>
+            <input class="btn btn-primary" type="submit">
+          </p>
+        </form>
+    </div>
+
+    <div class = "login-card">
+      <h2>Log In</h2>
+      <form action="/login" method="POST" class="login-form">
         <p>
           <input type="text" name="email" placeholder="Email">
         </p>
@@ -27,25 +53,8 @@
           <input class="btn btn-primary" type="submit">
         </p>
       </form>
+    </div>
+
   </div>
-
-  <div class = "login-card">
-    <h2>Log In</h2>
-    <form action="/login" method="POST" class="login-form">
-      <p>
-        <input type="text" name="email" placeholder="Email">
-      </p>
-
-      <p>
-        <input type="password" name="password" placeholder="Password">
-      </p>
-
-      <p>
-        <input class="btn btn-primary" type="submit">
-      </p>
-    </form>
-  </div>
-
-</div>
 
 {% endblock %}
