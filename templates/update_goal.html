@@ -2,7 +2,7 @@
 {% block main %}
 
 
-<h3>UPDATE GOAL</h3>
+<h1>Update Goal</h1>
 
 <div class="page-cont">
     <div class="form-container">
@@ -24,7 +24,7 @@
                 {{ form.complete.label }}
                 {{ form.complete(checked = goal.complete) }}
             </div>
-            <div class="form-group mt-2">
+            <div class="form-group mt-2" id="center-submit">
                 {{ form.submit(type="submit", class="btn btn-primary") }}
             </div>  
         </form>

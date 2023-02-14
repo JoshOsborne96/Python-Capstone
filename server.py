@@ -10,7 +10,11 @@ app = Flask(__name__)
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
 
-user_id = 2
+@app.errorhandler(404)
+def error_404(e):
+
+    return render_template("404.html", page ="404")
+
 
 @app.route("/")
 def home():
@@ -42,9 +46,15 @@ def login():
 def logout():
    """Log user out."""
 
-   del session["user_email"]
-   del session["user_id"]
-   flash("Logged out.")
+   if 'user_email' not in session:
+        flash("Please log in or create an account")
+        return redirect("/")
+        
+   else:
+        del session["user_email"]
+        del session["user_id"]
+        flash("Logged out.")
+
    return redirect("/")
 
 @app.route("/create-user", methods=["GET", "POST"])

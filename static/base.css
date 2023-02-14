@@ -4,6 +4,7 @@ h1{
     color: #ffffff;
     justify-content: center;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 form {
@@ -32,6 +33,13 @@ h2 {
     background-color: rgb(49, 10, 10);
 }
 
+#center-submit {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
 html, body {
     height: 100%;
 }
@@ -46,9 +54,10 @@ a, button {
 
 .card.text-center{
     margin-right: 10px;
-    width: 200px;
+    width: 300px;
     height: 300px;
     justify-items: center;
+    align-items: center;
 }
 
 body {
@@ -69,29 +78,52 @@ body {
     }
 }
 
-.page-cont {
+@media (min-width: 576px) {
+    body {
+        padding: 0;
+    }
+}
+
+.homepage-cont {
     display: flex;
-    border: 3px solid #ffffff;
+    flex-direction: column;
+    /* border: 3px solid #ffffff; */
     height: 70vh;
     width: 100vw;
     justify-content: center;
     align-items: center;
 }
 
+.page-cont {
+    display: flex;
+    /* border: 3px solid #ffffff; */
+    height: 70vh;
+    width: 100vw;
+    justify-content: center;
+    align-items:baseline
+}
+
+.page-cont-2 {
+    height: 70vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
 .form-cont {
     text-align: left;
 }
 
 .form-cont-1 {
-    position: absolute;
-    top: 200px;
-    display: flex;
-    flex-direction: row-reverse;
+    position: relative;
+    display: -webkit-flex;
     justify-content:center;
     align-items:center;
     width: 60vw;
-    height: 20vh;
-    border: 5px dotted #ffffff;
+    height: 10vh;
+    /* border: 5px dotted #ffffff; */
+    margin-bottom: 30px;
     
 }
 
@@ -104,7 +136,7 @@ body {
     width: 60vw;
     height: 30vh;
     margin-top: 50px;
-    border: 3px dotted #ffffff;
+    /* border: 3px dotted #ffffff; */
 
   
 }
@@ -114,10 +146,9 @@ body {
     display: flex;
     align-items:center;
     justify-content: center;
-    /* margin-bottom: 100px; */
     width: 100vw;
     height: 10vh;
-    border: 3px dotted #ffffff;
+    /* border: 3px dotted #ffffff; */
 }
 
 .small-logo-cont {
@@ -135,13 +166,13 @@ body {
 
 .flash-cont {
     text-align: center;
-    border: 3px dotted #ffffff;
+    /* border: 3px dotted #ffffff; */
     width: 60vw;
     height: 5vh;
 }
 
 .login-card {
-    width: 20px;
+    width: 20vw;
     border: 2px solid rgb(44,92,81);
     padding: 10 10px;
     background: #ffffff;
@@ -161,6 +192,11 @@ body {
 
 @media (width >= 500px) {
     .login-card {
+        margin: 0;
+        width: 400px;
+    }
+
+    .create-account-card {
         margin: 0;
         width: 400px;
     }
@@ -215,12 +251,14 @@ body {
 }
 
 #goal-list {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    border: 3px solid #ffffff;
+    display: grid;
+    grid-template-rows: auto auto ;
+    grid-template-columns: auto auto auto;
+    /* border: 3px solid #ffffff; */
 
 }
+
+  
 
 /* #logo-small {
    float: left;
@@ -230,7 +268,7 @@ body {
 } */
 
 #logo-large {
-    width: 450px;
+    width: 400px;
     height: 100%;
 }
 
