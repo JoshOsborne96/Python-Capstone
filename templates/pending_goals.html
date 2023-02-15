@@ -9,7 +9,7 @@
         {% for goal in goals %}
           <div class="card text-center h-100">
 
-            <img src ="{{ goal.picture_path }}" width="275" height="200">
+            <img src ="{{ goal.picture_path }}" width="325" height="200">
             <p>Description: {{ goal.description }} <p>
             <p>Deadline: {{ goal.deadline }}<p>
 
@@ -27,3 +27,11 @@
   </div>
 </div>
 {% endblock %}
+
+ <div class="flash-cont">
+    {% for msg in get_flashed_messages() %}
+    <p class="flash-msg">
+      {{ msg }}
+    </p>
+    {% endfor %}
+  </div>

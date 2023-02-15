@@ -52,9 +52,9 @@ a, button {
     100% { background-position: 15% 50%;}
 }
 
-.card.text-center{
+.card.text-center.h-100 {
     margin-right: 10px;
-    width: 300px;
+    min-width: 350px;
     height: 300px;
     justify-items: center;
     align-items: center;
@@ -93,7 +93,7 @@ body {
     display: flex;
     /* border: 3px solid #ffffff; */
     height: 70vh;
-    width: 100vw;
+    width: 80vw;
     justify-content: center;
     align-items:baseline
 }
@@ -239,10 +239,12 @@ body {
 }
 
 #goal-list {
-    display: grid;
-    grid-template-rows: auto auto ;
-    grid-template-columns: auto auto auto;
-    overflow: scroll;
+    display: flex;
+    flex-wrap:nowrap;
+    flex-direction: row;
+    /* grid-template-rows: auto auto ;
+    grid-template-columns: auto auto auto; */
+    overflow-x: scroll;
     /* border: 3px solid #ffffff; */
 
 }

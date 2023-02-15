@@ -150,12 +150,13 @@ def update_goal(goal_id):
 def delete_goal(goal_id):
 
     goal = Goal.query.get(goal_id)
+    goals = crud.get_pending_goals(session["user_id"])
 
     db.session.delete(goal)
     db.session.commit()
     flash("Goal deleted!")
 
-    return render_template("pending_goals.html", goal=goal)
+    return render_template("pending_goals.html", goal=goal, goals=goals, page="pending-goals")
 
 
 
