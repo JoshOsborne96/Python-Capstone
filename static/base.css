@@ -78,11 +78,6 @@ body {
     }
 }
 
-@media (min-width: 576px) {
-    body {
-        padding: 0;
-    }
-}
 
 .homepage-cont {
     display: flex;
@@ -243,29 +238,15 @@ body {
     color: rgba(0, 0, 0, 0.38)
 }
 
-@media (width >= 500px) {
-    .create-account-card {
-        margin: 0;
-        width: 400px;
-    }
-}
-
 #goal-list {
     display: grid;
     grid-template-rows: auto auto ;
     grid-template-columns: auto auto auto;
+    overflow: scroll;
     /* border: 3px solid #ffffff; */
 
 }
 
-  
-
-/* #logo-small {
-   float: left;
-   height: 10vh;
-   max-width: 10vw;
-   border: 5px solid #c3a769;
-} */
 
 #logo-large {
     width: 400px;
@@ -293,3 +274,99 @@ body {
 .flash-msg {
     color: #ffffff;
 }
+
+@media (max-width: 860px) {
+    body {
+        padding: 0;
+    }
+
+    .homepage-cont {
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        /* flex-direction: column-reverse; */
+        border: 3px solid #ffffff;
+        height: 80vh;
+        width: 100vw;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login-card {
+        width: 50vw;
+        border: 4px solid rgb(44,92,81);
+        padding: 10 10px;
+        background: #ffffff;
+        text-align: center;
+    
+    }
+
+    .create-account-card {
+        width: 50vw;
+        height: 269px;
+        border: 4px solid rgb(44,92,81);
+        padding: 10 10px;
+        background: #ffffff;
+        text-align: center;
+    
+    }
+
+    .login-form {
+        width: 100%;
+        margin: 0;
+        display: grid;
+        gap: 16px;
+    }
+    
+    .create-account-form {
+        width: 100%;
+        margin: 0;
+        display: grid;
+        gap: 16px;
+    }
+
+    #logo-large {
+        width: 200px;
+        height: 100%;
+
+    }
+
+    #logo-small {
+        display: none;
+    }
+
+    .nav-cont {
+        top: 0;
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        font-size: x-small;
+        width: 100vw;
+        height: 10vh;
+        /* border: 3px dotted #ffffff; */
+    }
+
+    .create-account-card > h2 {
+        margin: 0 0 12px;
+        font-size: 23px;
+        font-weight: 600;
+        
+    }
+
+    .login-card > h2 {
+        margin: 0 0 12px;
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .btn.btn-primary {
+        background-color: rgb(44,92,81);
+        border-color: rgb(44,92,81);
+    }
+
+    input {
+        width: 150px;
+        margin: 7px;
+    }
+
+ }
