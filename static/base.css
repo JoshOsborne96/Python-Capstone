@@ -33,6 +33,10 @@ h2 {
     background-color: rgb(49, 10, 10);
 }
 
+#checkbox {
+    accent-color: rgb(44,92,81);
+}
+
 #center-submit {
     text-align: center;
     align-items: center;
