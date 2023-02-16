@@ -1,12 +1,12 @@
 from flask import (Flask, render_template, redirect, url_for, request, session, flash)
-from flask_user import login_required
 from model import connect_to_db, Goal, db
 from forms import GoalForm
-import crud
+import crud, logging
 
 from jinja2 import StrictUndefined
 
 app = Flask(__name__)
+connect_to_db(app)
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
 
@@ -60,6 +60,8 @@ def logout():
 @app.route("/create-user", methods=["GET", "POST"])
 def create_user():
     """Create a new user"""
+
+    logging.error('This is an error message')
 
     email = request.form.get("email")
     password = request.form.get("password")
@@ -158,8 +160,10 @@ def delete_goal(goal_id):
 
     return render_template("pending_goals.html", goal=goal, goals=goals, page="pending-goals")
 
+# def app(env, res):
+#     connect_to_db(app)
+#     app.run(host="0.0.0.0", port=8080, debug=True)
 
-
-if __name__ == "__main__":
-    connect_to_db(app)
-    app.run(host="0.0.0.0", port=5000, debug=True)
+# if __name__ == "__main__":
+#     connect_to_db(app)
+#     app.run(host="0.0.0.0", port=8080, debug=True)

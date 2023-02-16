@@ -1,4 +1,4 @@
-import os
+import os, logging
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
@@ -47,9 +47,12 @@ class Goal(db.Model):
         return f"<Goal goal_id={self.id} description={self.description}>"
 
 
-def connect_to_db(flask_app, db_uri="postgresql://postgres:myschool@localhost:5432/python-capstone-db", echo=True):
-    # app.config["SQLALCHEMY_DATABASE_URI"] = os.environ["POSTGRES_URI"]
-    flask_app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
+def connect_to_db(flask_app, echo=True):
+    logging.error('This is an error message in model.py')
+    fly_db_url = os.environ["DATABASE_URL"]
+    correct_db_url = fly_db_url.replace("postgres", "postgresql", 1)
+    print(correct_db_url)
+    flask_app.config["SQLALCHEMY_DATABASE_URI"] = correct_db_url
     flask_app.config["SQLALCHEMY_ECHO"] = echo
     flask_app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
@@ -58,6 +61,7 @@ def connect_to_db(flask_app, db_uri="postgresql://postgres:myschool@localhost:54
     db.init_app(flask_app)
 
     print("Connected to the db!")
+    db.create_all()
 
 
 if __name__ == "__main__":
